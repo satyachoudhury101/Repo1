@@ -37,8 +37,8 @@ pipeline {
                 sshagent(['Cred_ID']) {
                     sh """
                         scp -o StrictHostKeyChecking=no target/myweb.war ec2-user@35.154.166.49:/home/ec2-user/tomcat10.1/webapps/
-                        ssh ec2-user@35.154.166.49 "bash /home/ec2-user/tomcat10.1/bin/shutdown.sh"
-                        ssh ec2-user@35.154.166.49 "bash /home/ec2-user/tomcat10.1/bin/startup.sh"
+                        ssh ec2-user@35.154.166.49 /home/ec2-user/tomcat10.1/bin/shutdown.sh
+                        ssh ec2-user@35.154.166.49 /home/ec2-user/tomcat10.1/bin/startup.sh
                     """
                 }
             }
